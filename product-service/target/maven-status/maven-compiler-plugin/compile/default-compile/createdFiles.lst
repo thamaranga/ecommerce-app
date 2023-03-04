@@ -1,0 +1,10 @@
+com\hasitha\productservice\dto\ProductResponseDTO$ProductResponseDTOBuilder.class
+com\hasitha\productservice\controller\ProductController.class
+com\hasitha\productservice\model\Product.class
+com\hasitha\productservice\repository\ProductRepository.class
+com\hasitha\productservice\dto\ProductRequestDTO$ProductRequestDTOBuilder.class
+com\hasitha\productservice\model\Product$ProductBuilder.class
+com\hasitha\productservice\dto\ProductRequestDTO.class
+com\hasitha\productservice\dto\ProductResponseDTO.class
+com\hasitha\productservice\ProductServiceApplication.class
+com\hasitha\productservice\service\ProductService.class

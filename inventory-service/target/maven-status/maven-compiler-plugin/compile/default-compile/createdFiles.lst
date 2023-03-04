@@ -1,0 +1,8 @@
+com\hasitha\inventoryservice\dto\InventoryResponseDTO$InventoryResponseDTOBuilder.class
+com\hasitha\inventoryservice\service\InventoryService.class
+com\hasitha\inventoryservice\model\Inventory.class
+com\hasitha\inventoryservice\dto\InventoryRequestDTO.class
+com\hasitha\inventoryservice\InventoryServiceApplication.class
+com\hasitha\inventoryservice\dto\InventoryResponseDTO.class
+com\hasitha\inventoryservice\repository\InventoryRepository.class
+com\hasitha\inventoryservice\controller\inventoryController.class
