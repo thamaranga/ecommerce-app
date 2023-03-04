@@ -11,21 +11,23 @@ This is a maven multi module micro service application.
 
 This application contains below micro services/modules.
 
-inventory-service - This uses a mysql db
-order-service - This uses a mysql db. This is a kafka producer.
-product-service - This uses mongo db. This is a isolated service.
-notification-service - This is a kafka consumer
-api-gateway
-discovery-server
-keycloak - sping up through docker 
-kafka - spin up through docker
-mongo db - sping up through kafka
+1. inventory-service - This uses a mysql db
+2. order-service - This uses a mysql db. This is a kafka producer.
+3. product-service - This uses mongo db. This is a isolated service.
+4. notification-service - This is a kafka consumer
+5. api-gateway
+6. discovery-server
+7. keycloak - sping up through docker 
+8. kafka - spin up through docker
+9. mongo db - sping up through kafka
 
 In this application for doing user authenticationa and
 authorization keycloak has been used.
 In local env we can spin up a keycloak doker container using below 
 command.
+
 docker run -p 8081:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:20.0.3 start-dev
+
 In web browser I can access above keycloak instance using
 http://localhost:8081/ url.
 After starting the keycloak server instance, need to create a realm
@@ -41,7 +43,9 @@ micro service.
 
 For implementing distributed log tracing zipkin has been used.
 In local environment , using below command zipkin docker instance can be spin up.
+
 docker run -d -p 9411:9411 openzipkin/zipkin
+
 Then above zipkin dashboard can be accesed in the browser using below url.
 http://localhost:9411/
 After adding zipkin to our project, it adds two ids as trace id and span id
