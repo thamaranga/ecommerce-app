@@ -9,7 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
-/*Here we are using only bacis spring security.
+/*Here we are using only basic spring security.
 * We are not using anything related to OAuth2 here.*/
 @Configuration
 @EnableWebSecurity

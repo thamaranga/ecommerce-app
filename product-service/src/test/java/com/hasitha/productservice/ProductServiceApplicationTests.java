@@ -37,7 +37,7 @@ class ProductServiceApplicationTests {
 	@Container
 	static MongoDBContainer mongoDBContainer=new MongoDBContainer("mongo:4.4.2");
 
-	//Get the mongodb  url from docker image and set to spring.data.mongodb.uri property.
+	//Get the mongodb  url from docker container and set to spring.data.mongodb.uri property.
 	@DynamicPropertySource
 	static void setProperties(DynamicPropertyRegistry dynamicPropertyRegistry){
 		dynamicPropertyRegistry.add("spring.data.mongodb.uri",mongoDBContainer::getReplicaSetUrl);

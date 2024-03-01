@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 
-@Document(value="product")
+@Document(value="product") // This is similar to @Entiry is relational DB systems
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder

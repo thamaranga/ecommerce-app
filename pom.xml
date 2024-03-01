@@ -17,8 +17,8 @@
     <module>order-service</module>
     <module>inventory-service</module>
     <module>discovery-server</module>
-      <module>api-gateway</module>
-      <module>notification-service</module>
+    <module>api-gateway</module>
+    <module>notification-service</module>
   </modules>
   <packaging>pom</packaging>
 
@@ -91,7 +91,7 @@
             &lt;!&ndash;This is the base image which we are using for building our images &ndash;&gt;
             <image>eclipse-temurin:17.0.4.1_1-jre</image>
           </from>
-          <to><image>registry.hub.docker.com/hasitha1990/${project.artifactId}</image>
+          <to><image>registry.hub.docker.com/+/${project.artifactId}</image>
 
           </to>
         </configuration>

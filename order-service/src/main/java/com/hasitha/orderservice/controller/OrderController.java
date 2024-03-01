@@ -20,11 +20,11 @@ public class OrderController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     //For implementing circuit breaker
-    @CircuitBreaker(name="inventory", fallbackMethod = "fallBackMethod")
+    //@CircuitBreaker(name="inventory", fallbackMethod = "fallBackMethod")
     //For implementing timeout
     //@TimeLimiter(name = "inventory")
     //For implementing retry
-    //@Retry(name = "inventory")
+    @Retry(name = "inventory")
     public OrderResponseDTO placeOrder(@RequestBody OrderRequestDTO orderRequestDTO){
         return orderService.placeOrder(orderRequestDTO);
     }

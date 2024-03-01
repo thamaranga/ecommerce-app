@@ -17,13 +17,13 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
-    @PostMapping
+    //@PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public ProductResponseDTO saveProduct(@RequestBody ProductRequestDTO productRequestDTO){
         return productService.saveProduct(productRequestDTO);
     }
 
-    @GetMapping
+    //@GetMapping("/get")
     @ResponseStatus(HttpStatus.OK)
     public List<ProductResponseDTO> getAllProducts(){
         return productService.getAllProducts();

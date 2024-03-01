@@ -16,7 +16,12 @@ public class SecurityConfig {
     @Bean
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity serverHttpSecurity){
         serverHttpSecurity.csrf().disable().
-                authorizeExchange(exchznge->exchznge.pathMatchers("/eureka/**").permitAll()
+                /*Below means skip authentication for eureka/** url pattern.
+                Since above url pattern is related to loading css styles/ javascript /images of eureka server.
+                And then authenticate all other urls*/
+                authorizeExchange(exchange->exchange.pathMatchers("/eureka/**").permitAll()
+                        //.pathMatchers("/api/product").hasRole("user")
+                        //.pathMatchers("/api/product/**").permitAll()
                         .anyExchange().authenticated()).
                 oauth2ResourceServer(ServerHttpSecurity.OAuth2ResourceServerSpec::jwt);
         return serverHttpSecurity.build();

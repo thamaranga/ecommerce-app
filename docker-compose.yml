@@ -1,14 +1,14 @@
-#This docker compose file is used to spin up kafka producer and consumer.
+#This docker compose file is used to spin up kafka zookeeper and broker.
 version: '3'
 services:
-  zookeeper:
+  zookeeper: #This manages the kafka cluster
     image: confluentinc/cp-zookeeper:7.3.0
     container_name: zookeeper
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
 
-  broker:
+  broker: # This is the kafka service
     image: confluentinc/cp-kafka:7.3.0
     container_name: broker
     ports:
@@ -25,3 +25,34 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+
+  ## Prometheus
+  prometheus:
+    image: prom/prometheus:v2.37.1
+    container_name: prometheus
+    restart: always
+    ports:
+      - "9090:9090"
+    volumes:
+      # copying prometheus config details from our local machine to prometheus container
+      - ./prometheus/prometheus.yaml:/etc/prometheus/prometheus.yaml
+    depends_on:
+      - product-service
+      - inventory-service
+      - order-service
+      - notification-service
+
+
+  grafana:
+    image: grafana/grafana-oss:8.5.2
+    container_name: grafana
+    restart: always
+    ports:
+      - "3000:3000"
+    links:
+      - prometheus:prometheus
+    volumes:
+      - ./grafana:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=password
